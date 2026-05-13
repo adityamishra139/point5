@@ -1,8 +1,11 @@
 import { motion } from 'motion/react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { SectionLabel } from '../SectionLabel';
 
 const BRANDING_PARTNERS = [
   {
+    id: 'swarnaavya',
     name: 'Swarnaavya',
     category: 'Jewellery',
     logo: '/brands/swarnaavya.png',
@@ -14,6 +17,7 @@ const BRANDING_PARTNERS = [
     deliverables: ['Logo Design', 'Brand Guidelines', 'Typography System', 'Color System', 'Art Direction'],
   },
   {
+    id: 'magadh-delight',
     name: 'Magadh Delight',
     category: 'FMCG',
     logo: '/brands/magadh-delight.png',
@@ -25,6 +29,7 @@ const BRANDING_PARTNERS = [
     deliverables: ['Brand Name & Tagline', 'Logo Design', 'Brand Guidelines', 'Typography System', 'Color System'],
   },
   {
+    id: 'gungun-properties',
     name: 'Gungun Properties',
     category: 'Real Estate',
     logo: '/brands/gungun-green.png',
@@ -36,6 +41,7 @@ const BRANDING_PARTNERS = [
     deliverables: ['Logo Design', 'Brand Guidelines', 'Typography System', 'Color System', 'Art Direction'],
   },
   {
+    id: 'kashiyatra',
     name: 'Kashiyatra Tours and Travels',
     category: 'Travel',
     logo: '/brands/kashi-yatra.png',
@@ -47,6 +53,7 @@ const BRANDING_PARTNERS = [
     deliverables: ['Logo Design', 'Brand Guidelines', 'Typography System', 'Color System', 'Art Direction'],
   },
   {
+    id: 'paan-banarasi',
     name: 'The Paan Banarasi',
     category: 'Food Unit',
     logo: '/brands/paan-banarasi.png',
@@ -58,6 +65,7 @@ const BRANDING_PARTNERS = [
     deliverables: ['Logo Design', 'Brand Guidelines', 'Typography System', 'Color System', 'Art Direction'],
   },
   {
+    id: 'tea-castle',
     name: 'Tea Castle',
     category: 'Food Unit',
     logo: '/brands/tea-castle.png',
@@ -69,6 +77,7 @@ const BRANDING_PARTNERS = [
     deliverables: ['Logo Design', 'Brand Guidelines', 'Typography System', 'Color Palettes', 'Creative Direction'],
   },
   {
+    id: 'mahajan-greens',
     name: 'Mahajan Greens',
     category: 'Events & Hospitality',
     logo: '/brands/mahajan-greens.png',
@@ -80,6 +89,7 @@ const BRANDING_PARTNERS = [
     deliverables: ['Logo Design', 'Brand Guidelines', 'Typography System', 'Color System', 'Art Direction'],
   },
   {
+    id: 'sarvaga-fashions',
     name: 'Sarvaga Fashions',
     category: 'Fashion',
     logo: '/brands/sarvaga-fashions.png',
@@ -93,6 +103,26 @@ const BRANDING_PARTNERS = [
 ];
 
 export const BrandingPartners = () => {
+  const { hash } = useLocation();
+
+  // Scroll to the anchor card when navigating via hash
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace('#', '');
+    // Small delay to allow page render
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top, behavior: 'smooth' });
+        // Briefly highlight the card
+        el.classList.add('ring-2', 'ring-white/30', 'ring-offset-0');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-white/30', 'ring-offset-0'), 2000);
+      }
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [hash]);
+
   return (
     <div className="mb-20">
       <SectionLabel number="04" text="Our Branding Work" />
@@ -110,11 +140,12 @@ export const BrandingPartners = () => {
         {BRANDING_PARTNERS.map((partner, i) => (
           <motion.div
             key={partner.name}
+            id={partner.id}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className={`relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br ${partner.bg} group hover:border-white/10 transition-all duration-500`}
+            className={`relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br ${partner.bg} group hover:border-white/10 transition-all duration-500 scroll-mt-28`}
           >
             {/* Glow accent */}
             <div

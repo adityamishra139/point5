@@ -39,14 +39,14 @@ export const FOUNDERS = [
 ];
 
 export const BRAND_LOGOS = [
-  { name: "Swarnaavya", src: "/brands/swarnaavya.png" },
-  { name: "Magadh Delight", src: "/brands/magadh-delight.png" },
-  { name: "Gungun Green Properties", src: "/brands/gungun-green.png" },
-  { name: "Kashi Yatra", src: "/brands/kashi-yatra.png" },
-  { name: "The Paan Banarasi", src: "/brands/paan-banarasi.png" },
-  { name: "The Tea Castle", src: "/brands/tea-castle.png" },
-  { name: "Mahajan Greens", src: "/brands/mahajan-greens.png" },
-  { name: "Sarvaga Fashions", src: "/brands/sarvaga-fashions.png" },
+  { name: "Swarnaavya", src: "/brands/swarnaavya.png", slug: "swarnaavya" },
+  { name: "Magadh Delight", src: "/brands/magadh-delight.png", slug: "magadh-delight" },
+  { name: "Gungun Green Properties", src: "/brands/gungun-green.png", slug: "gungun-properties" },
+  { name: "Kashi Yatra", src: "/brands/kashi-yatra.png", slug: "kashiyatra" },
+  { name: "The Paan Banarasi", src: "/brands/paan-banarasi.png", slug: "paan-banarasi" },
+  { name: "The Tea Castle", src: "/brands/tea-castle.png", slug: "tea-castle" },
+  { name: "Mahajan Greens", src: "/brands/mahajan-greens.png", slug: "mahajan-greens" },
+  { name: "Sarvaga Fashions", src: "/brands/sarvaga-fashions.png", slug: "sarvaga-fashions" },
 ];
 
 export const TESTIMONIALS = [
