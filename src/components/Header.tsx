@@ -8,14 +8,7 @@ import { MagneticButton } from './MagneticButton';
 const NAV_LINKS = [
   { label: 'Home', path: '/' },
   { label: 'About Us', path: '/about' },
-  {
-    label: 'Services',
-    path: '/services',
-    children: [
-      { label: 'All Services', path: '/services' },
-      { label: 'Service Details', path: '/services/branding-visual-identity' },
-    ],
-  },
+  { label: 'Services', path: '/services' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -56,7 +49,12 @@ export const Header = () => {
           )}
         >
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group" onClick={(e) => {
+            if (location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}>
             <motion.span
               className="font-display font-bold text-lg md:text-xl tracking-tighter uppercase text-white"
               whileHover={{ scale: 1.02 }}
@@ -84,6 +82,12 @@ export const Header = () => {
                       ? "text-background bg-accent shadow-[0_0_15px_rgba(196,239,23,0.3)]"
                       : "text-white/70 hover:text-accent hover:bg-white/5"
                   )}
+                  onClick={(e) => {
+                    if (location.pathname === item.path) {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
                 >
                   {item.label}
                   {item.children && (
@@ -118,7 +122,12 @@ export const Header = () => {
               </div>
             ))}
 
-            <Link to="/contact">
+            <Link to="/contact" onClick={(e) => {
+              if (location.pathname === "/contact") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}>
               <MagneticButton className="ml-4 bg-accent text-background px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-3 hover:scale-105 transition-all duration-300 group shadow-[0_0_30px_rgba(196,239,23,0.5)]">
                 <span className="w-7 h-7 rounded-full bg-background flex items-center justify-center text-accent group-hover:rotate-45 transition-transform">
                   <ArrowRight className="w-4 h-4" />
@@ -162,7 +171,13 @@ export const Header = () => {
                       "text-4xl md:text-5xl font-display font-bold uppercase tracking-tighter py-3 transition-colors",
                       location.pathname === item.path ? "text-accent" : "text-white/40 hover:text-accent"
                     )}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => {
+                      setMobileOpen(false);
+                      if (location.pathname === item.path) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }}
                   >
                     {item.label}
                   </Link>
@@ -176,7 +191,13 @@ export const Header = () => {
               transition={{ delay: 0.5 }}
               className="mt-12"
             >
-              <Link to="/contact" onClick={() => setMobileOpen(false)}>
+              <Link to="/contact" onClick={(e) => {
+                setMobileOpen(false);
+                if (location.pathname === "/contact") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}>
                 <MagneticButton className="bg-accent text-background px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider shadow-xl">
                   Get in Touch
                 </MagneticButton>

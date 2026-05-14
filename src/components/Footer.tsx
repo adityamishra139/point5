@@ -59,6 +59,12 @@ export const Footer = () => {
                   <Link
                     to={link.path}
                     className="text-white/40 hover:text-white font-bold text-base transition-colors"
+                    onClick={(e) => {
+                      if (window.location.pathname === link.path) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }}
                   >
                     {link.label}
                   </Link>
