@@ -1,7 +1,7 @@
 import {motion} from 'motion/react';
 import {CheckCircle, ArrowRight} from 'lucide-react';
 import {useState} from 'react';
-import {COMPANY, FOUNDERS} from '@/src/data/content';
+import {COMPANY, TEAM_MEMBERS} from '@/src/data/content';
 import {Container} from '@/src/components/layout/Container';
 import {Section} from '@/src/components/layout/Section';
 import {TextHoverEffect} from '@/src/components/ui/text-hover-effect';
@@ -15,7 +15,7 @@ export function ContactSection() {
     window.setTimeout(() => setSubmitted(false), 3000);
   };
 
-  const primary = FOUNDERS[0];
+  const primary = TEAM_MEMBERS[0];
 
   return (
     <Section className="bg-background overflow-hidden">
@@ -93,7 +93,7 @@ export function ContactSection() {
                       <div className="flex flex-col">
                         <span className="text-white font-bold text-sm leading-tight">{primary.name}</span>
                         <span className="text-white/40 text-[10px] font-bold uppercase tracking-wider">
-                          Founder
+                          {primary.role}
                         </span>
                       </div>
                     </div>

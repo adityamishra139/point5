@@ -2,7 +2,6 @@ import { motion } from 'motion/react';
 import { Hero } from '../components/Hero';
 import { BrandMarquee } from '../components/home/BrandMarquee';
 import { Testimonials } from '../components/home/Testimonials';
-import { Founders } from '../components/home/Founders';
 import { ContactSection } from '../components/home/ContactSection';
 import { FaqSection } from '../components/home/FaqSection';
 import { TextCarousel } from '../components/ui/text-carousel';
@@ -27,7 +26,6 @@ export const HomePage = () => {
       </div>
 
       <Testimonials />
-      <Founders />
       <ContactSection />
       <FaqSection />
     </motion.main>

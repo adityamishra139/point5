@@ -6,6 +6,7 @@ import { FunFacts } from '../components/about/FunFacts';
 import { AboutServices } from '../components/about/AboutServices';
 import { PageDetailing } from '../components/ui/PageDetailing';
 import GoogleGeminiEffectDemo from '../components/google-gemini-effect-demo';
+import { Team } from '../components/about/Team';
 
 export const AboutPage = () => {
   return (
@@ -13,6 +14,7 @@ export const AboutPage = () => {
       <PageDetailing />
       <AboutHero />
       <AboutIntro />
+      <Team />
       <GoogleGeminiEffectDemo />
       <WhyChooseUs />
       <FunFacts />

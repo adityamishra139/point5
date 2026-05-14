@@ -23,19 +23,16 @@ export const COMPANY = {
   },
 };
 
-export const FOUNDERS = [
-  {
-    name: "Sumedha Pathak",
-    role: "Founder & CEO",
-    image: "/team/sumedha.webp",
-    bio: "Sumedha is the visionary behind Point 5 Media, leading strategy, content direction, and brand partnerships with a passion for impactful storytelling.",
-  },
-  {
-    name: "Akash Gupta",
-    role: "Co-Founder",
-    image: "/team/akash.webp",
-    bio: "Akash drives creative production and technical execution, bringing brands to life through cinematic visuals and innovative digital experiences.",
-  },
+export const TEAM_MEMBERS = [
+  { name: "Team Member 1", role: "Creative Team", image: "/team/IMG_9879.webp", bio: "" },
+  { name: "Team Member 2", role: "Creative Team", image: "/team/IMG_9884.webp", bio: "" },
+  { name: "Team Member 3", role: "Creative Team", image: "/team/IMG_9887.webp", bio: "" },
+  { name: "Team Member 4", role: "Creative Team", image: "/team/IMG_9894.webp", bio: "" },
+  { name: "Team Member 5", role: "Creative Team", image: "/team/IMG_9898.webp", bio: "" },
+  { name: "Team Member 6", role: "Creative Team", image: "/team/IMG_9904.webp", bio: "" },
+  { name: "Team Member 7", role: "Creative Team", image: "/team/IMG_9926.webp", bio: "" },
+  { name: "Team Member 8", role: "Creative Team", image: "/team/IMG_9937.webp", bio: "" },
+  { name: "Team Member 9", role: "Creative Team", image: "/team/IMG_9948.webp", bio: "" },
 ];
 
 export const BRAND_LOGOS = [
