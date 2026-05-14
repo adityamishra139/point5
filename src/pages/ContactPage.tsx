@@ -15,7 +15,7 @@ export const ContactPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-background text-foreground min-h-screen overflow-hidden relative pt-12"
+      className="bg-background text-foreground min-h-screen overflow-hidden relative"
     >
       <PageDetailing />
       <div className="fixed inset-0 z-0">

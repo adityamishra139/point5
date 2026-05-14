@@ -20,7 +20,7 @@ const SOCIAL_LINKS = [
 export const ContactHero = () => {
 
   return (
-    <section className="py-32 px-6 md:px-12 text-center">
+    <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-32 pb-20 text-center">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center mb-16">
           {/* Breadcrumbs matching AboutHero/PageHero */}

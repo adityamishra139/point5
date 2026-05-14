@@ -36,6 +36,21 @@ export const TEAM_MEMBERS = [
   { name: "Amaan Rashid", role: "Social Media Intern", image: "/team/IMG_9898.webp", bio: "" },
 ];
 
+export const FOUNDERS = [
+  {
+    name: "Sumedha Pathak",
+    role: "Founder & CEO",
+    image: "/team/sumedha.webp",
+    bio: "Sumedha is the visionary behind Point 5 Media, leading strategy, content direction, and brand partnerships with a passion for impactful storytelling.",
+  },
+  {
+    name: "Akash Gupta",
+    role: "Co-Founder",
+    image: "/team/akash.webp",
+    bio: "Akash drives creative production and technical execution, bringing brands to life through cinematic visuals and innovative digital experiences.",
+  },
+];
+
 export const BRAND_LOGOS = [
   { name: "Swarnaavya", src: "/brands/swarnaavya.png", slug: "swarnaavya" },
   { name: "Magadh Delight", src: "/brands/magadh-delight.png", slug: "magadh-delight" },

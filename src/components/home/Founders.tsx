@@ -1,12 +1,12 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { TEAM_MEMBERS } from '../../data/content';
+import { FOUNDERS } from '../../data/content';
 import { SectionLabel } from '../SectionLabel';
 import { Plus } from 'lucide-react';
 import { useRef, type MouseEvent } from 'react';
 import { KineticText } from '../motion/KineticText';
 import { useScrollTypeLink } from '../../motion/useScrollTypeLink';
 
-const TeamCard = ({ member, index }: { member: typeof TEAM_MEMBERS[0]; index: number }) => {
+const FounderCard = ({ founder, index }: { founder: typeof FOUNDERS[0]; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -32,7 +32,7 @@ const TeamCard = ({ member, index }: { member: typeof TEAM_MEMBERS[0]; index: nu
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: index * 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={handleMouse}
       onMouseLeave={handleLeave}
       style={{ rotateX, rotateY, transformPerspective: 800 }}
@@ -42,8 +42,8 @@ const TeamCard = ({ member, index }: { member: typeof TEAM_MEMBERS[0]; index: nu
         {/* Image */}
         <div className="aspect-[4/5] overflow-hidden">
           <motion.img
-            src={member.image}
-            alt={member.name}
+            src={founder.image}
+            alt={founder.name}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
@@ -63,13 +63,13 @@ const TeamCard = ({ member, index }: { member: typeof TEAM_MEMBERS[0]; index: nu
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 + index * 0.1 }}
+            transition={{ delay: 0.3 + index * 0.1 }}
           >
-            <h3 className="text-xl md:text-2xl font-bold font-display uppercase leading-tight text-white mb-1">
-              {member.name}
+            <h3 className="text-3xl font-bold font-display uppercase tracking-tighter text-white mb-2">
+              {founder.name}
             </h3>
-            <p className="text-accent text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-80">
-              {member.role}
+            <p className="text-accent text-sm font-bold uppercase tracking-widest">
+              {founder.role}
             </p>
           </motion.div>
         </div>
@@ -78,19 +78,19 @@ const TeamCard = ({ member, index }: { member: typeof TEAM_MEMBERS[0]; index: nu
   );
 };
 
-export const Team = () => {
+export const Founders = () => {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
   useScrollTypeLink(headingRef);
 
   return (
-    <section className="py-32 px-6 md:px-12 relative overflow-hidden bg-background border-t border-white/5">
-      {/* Background text 'CREATIVE TEAM' */}
+    <section className="py-32 px-6 md:px-12 relative overflow-hidden bg-background">
+      {/* Background text 'EXPERT FOUNDERS' */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none select-none overflow-hidden">
         <h2 className="text-[18vw] font-display font-bold uppercase tracking-tighter text-white/[0.02] leading-none whitespace-nowrap">
-          Creative
+          Expert
         </h2>
         <h2 className="text-[18vw] font-display font-bold uppercase tracking-tighter text-white/[0.02] leading-none whitespace-nowrap -mt-[5vw]">
-          Team
+          Founders
         </h2>
       </div>
 
@@ -101,7 +101,7 @@ export const Team = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <div>
-            <SectionLabel number="04" text="The Team" />
+            <SectionLabel number="08" text="Founders" />
             <h2
               ref={headingRef}
               className="text-5xl md:text-7xl font-bold font-display uppercase tracking-tighter leading-none text-white"
@@ -110,15 +110,15 @@ export const Team = () => {
                 Meet our
               </KineticText>
               <KineticText as="span" className="block text-white/20" delay={0.05}>
-                creative team
+                visionary leaders
               </KineticText>
             </h2>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {TEAM_MEMBERS.map((member, i) => (
-            <TeamCard key={member.name} member={member} index={i} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+          {FOUNDERS.map((founder, i) => (
+            <FounderCard key={founder.name} founder={founder} index={i} />
           ))}
         </div>
       </div>
