@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SectionLabel } from '../SectionLabel';
+import { InstagramEmbed } from '../ui/InstagramEmbed';
 
 const SOCIAL_CATEGORIES = [
   {
@@ -256,23 +257,12 @@ export const SocialMediaShowcase = ({ sectionNumber = "05" }: { sectionNumber?: 
               transition={{ delay: i * 0.05, duration: 0.3 }}
               className="flex flex-col gap-4 shrink-0 snap-center sm:snap-start w-[85vw] sm:w-[280px]"
             >
-              {/* Phone Mockup */}
-              <div className="relative mx-auto w-full max-w-[280px] aspect-[9/16] bg-black rounded-[32px] border-[6px] border-white/10 hover:border-white/30 transition-all overflow-hidden shadow-2xl group">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-white/10 rounded-b-2xl z-20 backdrop-blur-md" />
-                
-                {/* IG Embed */}
-                <iframe 
-                  src={client.url} 
-                  className="w-full h-[105%] border-none absolute top-0 left-0 bg-black"
-                  scrolling="no"
-                  allowTransparency={true}
-                  allow="encrypted-media"
-                  title={client.name}
-                  style={{ top: '-1px' }}
-                />
-
-                <div className="absolute inset-0 border border-white/10 rounded-[26px] pointer-events-none z-30" />
-              </div>
+              {/* Cropped reel — video only, no Instagram chrome */}
+              <InstagramEmbed
+                url={client.url}
+                title={client.name}
+                className="mx-auto w-full max-w-[280px] rounded-3xl border border-white/10 hover:border-accent/40 transition-colors shadow-2xl"
+              />
 
               {/* Client Info — result first */}
               <div className="text-center md:text-left px-2">

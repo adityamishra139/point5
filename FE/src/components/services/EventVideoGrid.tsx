@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { SectionLabel } from '../SectionLabel';
+import { InstagramEmbed } from '../ui/InstagramEmbed';
 
 const EVENT_VIDEOS = [
   { title: "Aura Beauty Expo", tag: "Exhibition", url: "https://www.instagram.com/p/DSj0_TIj8uK/embed" },
@@ -52,18 +53,11 @@ export const EventVideoGrid = ({ sectionNumber = "05" }: { sectionNumber?: strin
             transition={{ delay: i * 0.1, duration: 0.5 }}
             className="flex flex-col gap-4 group w-[85vw] sm:w-[320px] md:w-[360px] snap-center sm:snap-start shrink-0"
           >
-            <div className="relative w-full aspect-[9/16] bg-black rounded-3xl overflow-hidden border border-white/10 hover:border-white/30 transition-all shadow-xl">
-              {/* Instagram Embed Container */}
-              <iframe 
-                src={video.url} 
-                className="w-full h-[105%] border-none absolute top-0 left-0 bg-black"
-                scrolling="no"
-                allowTransparency={true}
-                allow="encrypted-media"
-                title={video.title}
-                style={{ top: '-1px' }}
-              />
-            </div>
+            <InstagramEmbed
+              url={video.url}
+              title={video.title}
+              className="w-full rounded-3xl border border-white/10 hover:border-accent/40 transition-colors shadow-xl"
+            />
             <div className="px-2 text-center sm:text-left">
               <span className="inline-block text-[9px] font-black uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent mb-1.5">
                 {video.tag}
